@@ -5,9 +5,9 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["bigtiger", "sandro"]
+  s.authors = ["Jim Remsik", "Sandro Turriate"]
   s.date = %q{2009-06-12}
-  s.email = %q{dev+bigtiger+sandro@hashrocket.com}
+  s.email = %q{bigtiger+rolex@hashrocket.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
