@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
      "VERSION",
      "lib/float_ext.rb",
      "lib/rolex.rb",
+     "lib/line_item.rb",
+     "lib/report.rb",
      "spec/rolex_spec.rb",
      "spec/spec_helper.rb"
   ]
