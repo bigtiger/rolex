@@ -12,7 +12,7 @@ class Rolex
     end
 
     def elapsed_time_in_hours
-      (elapsed / 60 / 60).round_to(2)
+      elapsed.nil? ? 0 : (elapsed / 60 / 60).round_to(2)
     end
   end
 end
