@@ -44,4 +44,6 @@ Gem::Specification.new do |s|
     end
   else
   end
+
+  s.add_dependency("grit", [">= 1.1.1"])
 end
