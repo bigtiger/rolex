@@ -1,7 +1,15 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Rolex" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+  before do
+    @rolex = Rolex.new("~/hashrocket/newhomeguide", "bigtiger")
   end
+
+  describe '#today' do 
+    it "retrieves today's commits" do
+      Grit::Commit.should_receive(:find_all)
+      @rolex.today
+    end
+  end
+
 end

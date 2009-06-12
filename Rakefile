@@ -6,9 +6,9 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "rolex"
     gem.summary = %Q{TODO}
-    gem.email = "dev+bender@hashrocket.com"
+    gem.email = "dev+bigtiger+sandro@hashrocket.com"
     gem.homepage = "http://github.com/bigtiger/rolex"
-    gem.authors = ["Pairing Workstation Bender"]
+    gem.authors = ["bigtiger", "sandro"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
