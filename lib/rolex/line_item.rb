@@ -19,7 +19,7 @@ class Rolex
     end
 
     def to_s
-      "#{message} - #{elapsed_time_in_hours}"
+      sprintf "%-4s - %s", elapsed_time_in_hours, message
     end
   end
 end

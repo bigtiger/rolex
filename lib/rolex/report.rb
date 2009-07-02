@@ -18,8 +18,11 @@ class Rolex
 
         lines << LineItem.new(c.message, elapsed)
       end
-      lines << "Total time: #{total_elapsed_time}" if lines.any?
-      puts lines.join("\n")
+
+      if lines.any?
+        lines << "\nTotal time: #{total_elapsed_time}"
+        puts lines.join("\n")
+      end
     end
 
     def total_elapsed_time
@@ -30,6 +33,5 @@ class Rolex
 
       total
     end
-
   end
 end
