@@ -13,7 +13,7 @@ class Rolex
         elapsed = nil
         if c != commits.first
           previous = commits[i-1]
-          elapsed = c.committed_date - previous.committed_date
+          elapsed = c.authored_date - previous.authored_date
         end
 
         if c.author.email.include?(who)
