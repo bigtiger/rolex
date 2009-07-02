@@ -2,6 +2,9 @@ $:.unshift(File.dirname(__FILE__))
 
 begin; require 'rubygems'; rescue LoadError; end
 require 'grit'
+require 'trollop'
+require 'chronic'
+
 require 'float_ext'
 require 'time_ext'
 

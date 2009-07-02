@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path(File.join(File.dirname(__FILE__) + "/../lib"))
+require 'rolex'
+
+opts = Trollop.options do
+  banner <<-EOS
+Rolex is awesome
+Example:
+    rolex --author 'Sandro Turriate' --project '.' --date 'two days ago'
+
+Usage:
+    rolex [options]
+where [options] are:
+EOS
+
+  opt :author, "Name of git author", :type => String, :required => true
+  opt :project, "Directory to the git repo", :type => String, :default => Dir.pwd
+  opt :date, "The day you want to report", :type => String, :default => "today"
+end
+
+Rolex.new(opts[:project], opts[:author]).report_for(opts[:date])
