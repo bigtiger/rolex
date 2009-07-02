@@ -9,6 +9,9 @@ begin
     gem.email = "dev+bigtiger+sandro@hashrocket.com"
     gem.homepage = "http://github.com/bigtiger/rolex"
     gem.authors = ["bigtiger", "sandro"]
+    gem.add_dependency('mojombo-grit', '>= 1.1.1')
+    gem.add_dependency('mojombo-chronic', '>= 0.3.0')
+    gem.add_dependency('trollop', '>= 1.14')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
