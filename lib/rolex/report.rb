@@ -20,7 +20,8 @@ class Rolex
       end
 
       if lines.any?
-        lines << "\nTotal time: #{total_elapsed_time}"
+        lines << "Total time: #{total_elapsed_time}\n\n"
+        lines.unshift "Commits on #{commits.first.authored_date.to_date}"
         puts lines.join("\n")
       end
     end
