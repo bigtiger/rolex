@@ -20,10 +20,26 @@ class Rolex
     @repo = Grit::Repo.new(repo_location)
   end
 
+  def last_week
+    report_range("last week monday", "last week sunday")
+  end
+
   def report_for(date)
-    date = get_date(date)
+    date = date_for(date)
     commits = repo.commits_since nil, date, :until => date + 1, :author => who
     Report.new(commits).run
+  end
+
+  def report_range(starting, ending)
+    starting = date_for starting
+    ending = date_for ending
+    (starting..ending).each do |date|
+      report_for date
+    end
+  end
+
+  def this_week
+    report_range("last monday", "today")
   end
 
   def today
@@ -32,7 +48,7 @@ class Rolex
 
   private
 
-  def get_date(time)
+  def date_for(time)
     case time
     when String
       Chronic.parse(time).to_date

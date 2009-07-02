@@ -19,4 +19,14 @@ EOS
   opt :date, "The day you want to report", :type => String, :default => "today"
 end
 
-Rolex.new(opts[:project], opts[:author]).report_for(opts[:date])
+rolex = Rolex.new(opts[:project], opts[:author])
+
+case ARGV.join(" ").downcase
+when "last week"
+  rolex.last_week
+when "this week"
+  rolex.this_week
+else
+  rolex.report_for(opts[:date])
+end
+

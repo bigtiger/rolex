@@ -8,6 +8,21 @@ describe "Rolex" do
     @now = Time.now
   end
 
+  it "reports on today" do
+    @rolex.should_receive(:report_for).with(Date.today)
+    @rolex.today
+  end
+
+  it "reports on last week" do
+    @rolex.should_receive(:report_range).with("last week monday", "last week sunday")
+    @rolex.last_week
+  end
+
+  it "reports on this week" do
+    @rolex.should_receive(:report_range).with("last monday", "today")
+    @rolex.this_week
+  end
+
   describe "#report_for" do
     it "parses strings with Chronic" do
       Chronic.should_receive(:parse).with("yesterday").and_return(Time.now)
@@ -28,10 +43,10 @@ describe "Rolex" do
     end
   end
 
-  it "finds the commits for the given time period" do
-
-  end
-
-  describe '#today' do 
+  describe "#report_range" do
+    it "finds the commits for the given time period" do
+      @rolex.should_receive(:report_for).at_least(2).times
+      @rolex.report_range("yesterday", "today")
+    end
   end
 end
