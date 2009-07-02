@@ -1,9 +1,9 @@
 class Rolex
   class Report
-    attr_reader :commits, :who
+    attr_reader :commits, :lines
+    private :lines
 
-    def initialize(commits, who)
-      @who = who
+    def initialize(commits)
       @commits = commits.reverse
       @lines = []
     end
@@ -16,17 +16,15 @@ class Rolex
           elapsed = c.authored_date - previous.authored_date
         end
 
-        if c.author.email.include?(who)
-          @lines << LineItem.new(c.message, elapsed)
-        end
+        lines << LineItem.new(c.message, elapsed)
       end
-      @lines << "Total time: #{total_elapsed_time}"
-      @lines.join("\n")
+      lines << "Total time: #{total_elapsed_time}" if lines.any?
+      puts lines.join("\n")
     end
 
     def total_elapsed_time
       total = 0
-      @lines.each do |l|
+      lines.each do |l|
         total += l.elapsed_time_in_hours
       end
 

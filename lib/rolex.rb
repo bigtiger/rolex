@@ -15,9 +15,28 @@ class Rolex
     @repo = Grit::Repo.new(repo_location)
   end
 
+  def report_for(date)
+    date = get_date(date)
+    commits = repo.commits_since nil, date, :until => date + 1, :author => who
+    Report.new(commits).run
+  end
+
   def today
     commits = Grit::Commit.find_all(@repo, nil, :since => Time.today)
     Report.new(commits, who).run
   end
 end
 
+  private
+
+  def get_date(time)
+    case time
+    when String
+      Chronic.parse(time).to_date
+    when Time
+      time.to_date
+    when Date
+      time
+    end
+  end
+end
