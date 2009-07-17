@@ -30,7 +30,7 @@ describe "Rolex" do
     end
 
     it "retrieves commits" do
-      @rolex.repo.should_receive(:commits_since).with(nil, @now.to_date, :until => @now.to_date + 1, :author => @rolex.who).and_return(@commits)
+      @rolex.repo.should_receive(:commits_since).with('HEAD', @now.to_date, :until => @now.to_date + 1, :author => @rolex.who).and_return(@commits)
       Rolex::Report.should_receive(:new).with(@commits).and_return(@report)
       @rolex.report_for(@now)
     end

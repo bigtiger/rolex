@@ -26,7 +26,7 @@ class Rolex
 
   def report_for(date)
     date = date_for(date)
-    commits = repo.commits_since nil, date, :until => date + 1, :author => who
+    commits = repo.commits_since 'HEAD', date, :until => date + 1, :author => who
     Report.new(commits).run
   end
 
